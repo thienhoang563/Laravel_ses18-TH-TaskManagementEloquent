@@ -12,14 +12,35 @@
                     <label>Tên công việc</label>
                     <input type="text" class="form-control" name="title" value="{{ $task->title }}" required>
                 </div>
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            <li>{{ $errors->first('title') }}</li>
+                        </ul>
+                    </div>
+                @endif
                 <div class="form-group">
                     <label>Nội dung</label>
                     <textarea class="form-control" rows="3" name="content"  required>{{ $task->content }}</textarea>
                 </div>
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            <li>{{ $errors->first('content') }}</li>
+                        </ul>
+                    </div>
+                @endif
                 <div class="form-group">
                     <label>Ảnh</label>
                     <input type="file" name="image" class="form-control-file" >
                 </div>
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            <li>{{ $errors->first('image') }}</li>
+                        </ul>
+                    </div>
+                @endif
                 <div class="form-group">
                     <label>Ngày hết hạn</label>
                     <input type="date" name="due_date" class="form-control"  value="{{ $task->due_date }}" required>
